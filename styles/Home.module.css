@@ -1,116 +1,205 @@
-.container {
-  padding: 0 2rem;
+#banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10000;
+  width: 100vw;
+  height: 100vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
+#banner h1 {
+  position: absolute;
+  top: 20vh;
+  right: 3vw;
+  font-family: yakuzaFont;
+  text-align: center;
   font-size: 4rem;
+  color: white;
+  width: clamp(250px, 50%, 700px);
 }
 
-.title,
-.description {
+#homeContent {
+  padding: 1rem;
+  margin-top: 100vh;
+  background-color: hsl(0, 0%, 85%);
+  min-height: 100vh;
+  box-shadow: 0 -0.5rem 0.5rem 0.25rem black;
+  overflow-x: hidden;
+}
+
+.summary {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.summary h1 {
+  text-align: center;
+  font-family: yakuzaFont;
+  margin: 3rem auto 1rem auto;
+  width: clamp(200px, 60%, 500px);
+  border-bottom: 3px solid black;
+}
+
+.storeBtn {
+  width: calc(100% + 2rem);
+  background: url("https://wallpapercave.com/wp/wp7893545.png");
+  background-position:top;
+  background-size: cover;
+  margin: 8rem -1rem;
+  height: 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.storeBtn img {
+  height: 150%;
+  pointer-events: none;
+}
+
+.storeBtn .leftImage {
+  transform: translateX(-100vw)
+}
+
+.storeBtn .rightImage {
+  transform: translateX(100vw)
+}
+
+.storeBtn .leftImage.active {
+  animation: slideInRight 0.75s ease forwards;
+}
+
+.storeBtn .rightImage.active {
+  animation: slideInLeft 0.75s ease forwards;
+}
+
+.storeBtn .storeBtnDiv {
   text-align: center;
 }
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.storeBtn .storeBtnDiv h1 {
+  font-size: 4rem;
+  font-family: yakuzaFont;
+  margin: 0;
+  color: white;
+}
+.storeBtn .storeBtnDiv a {
+  font-size: 2rem;
+  font-family: yakuzaFont;
+  background-color: #DC143C;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  transition: all 0.3s;
+}
+.storeBtn .storeBtnDiv a:hover {
+  background-color: transparent;
+  color: white;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-5vw);
+  }
 }
 
-.grid {
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(5vw);
+  }
+}
+
+#popularTitle {
+  text-align: center;
+  font-family: yakuzaFont;
+  margin: 1rem auto;
+  width: clamp(200px, 60%, 500px);
+  border-bottom: 3px solid black;
+}
+
+.popularProduct {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  gap: 5rem;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.product {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  gap: 1rem;
+}
+.product img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  width: 30%;
+}
+.product div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.product div h2 {
+ margin: 0;
+ font-family: yakuzaFont;
+}
+.product div h2 span {
+  color: #DC143C;
+}
+.product div a {
+  background-color: #DC143C;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  transition: all 0.3s;
+}
+.product div a:hover {
+  background-color: black;
+  color: white;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+
+@media only screen and (max-width: 1000px) {
+  .storeBtn {
+    justify-content: center;
+  }
+
+  .storeBtn img {
+    display: none;
+  }
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
+@media only screen and (max-width: 720px) {
+  .product {
+    flex-wrap: wrap;
+  }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
+  .product img {
     width: 100%;
-    flex-direction: column;
+    order: 1;
+  }
+
+  .product div {
+    order: 2;
   }
 }
